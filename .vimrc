@@ -58,6 +58,7 @@ Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 set expandtab       "Use softtabstop spaces instead of tab characters for indentation
 set shiftwidth=4    "Indent by 4 spaces when using >>, <<, == etc.
 set tabstop=4
+set smartindent
 set nocompatible      " Disables troublesome VI compatibilty
 set title             " Sets the title bar to give the filename and path
 set ruler             " Enables the location information in bottom right corner
@@ -110,5 +111,7 @@ if has("gui_running")
    endif
 endif
 
+" snipmate mapping to ctrl-j
+imap <c-j> <Plug>snipMateNextOrTrigger
+smap <c-j> <Plug>snipMateNextOrTrigger
 " End .vimrc
-

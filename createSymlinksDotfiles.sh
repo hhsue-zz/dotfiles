@@ -8,7 +8,6 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-
 files=".bashrc .vimrc .vimogen_repos"    # list of files/folders to symlink in homedir
 
 ##########
