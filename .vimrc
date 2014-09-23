@@ -1,6 +1,4 @@
 " Begin .vimrc
-
-
 """""""""""""""""""""VUNDLE INSTALLATION""""""""""""""""""""""""""
 set backspace=2
 set nocompatible              " be iMproved, required
@@ -18,18 +16,26 @@ Plugin 'gmarik/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
+" Plugin 'L9'
 " Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
+" Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
 " Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
 " Plugin 'user/L9', {'name': 'newL9'}
+
+" All my vundles
+Plugin 'tomtom/tlib_vim.git'
+Plugin 'MarcWeber/vim-addon-mw-utils.git'
+Plugin 'garbas/vim-snipmate.git'
+Plugin 'honza/vim-snippets.git'
+Plugin 'rkulla/pydiction.git'
+Plugin 'scrooloose/nerdtree.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -46,15 +52,8 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-
-""""""""""""""""""""""""SnipMate Dependencies"""""""""""""""""""""
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-
 """""""""""""""""""""""""Actual Vim Config""""""""""""""""""""""""""
+set background=light
 set expandtab       "Use softtabstop spaces instead of tab characters for indentation
 set shiftwidth=4    "Indent by 4 spaces when using >>, <<, == etc.
 set tabstop=4
@@ -67,20 +66,21 @@ set ignorecase        " Searches ignore case
 set wildmenu          " Menu for autocomplete of filenames
 set number            " Prints line numbers on left of screen
 
-au BufNewFile,BufRead *.cu set ft=cu
-au BufNewFile,BufRead *.cuh set ft=cu
-
-filetype plugin indent on
 syntax on
 
+"CUDA
+"au BufNewFile,BufRead *.cu set ft=cu
+"au BufNewFile,BufRead *.cuh set ft=cu
+
+
 """""""""""""""""""""""""""Pathogen"""""""""""""""""""""""""""""""
-execute pathogen#infect()
+"execute pathogen#infect()
 
 """""""""""""""""""""""""More Plugins""""""""""""""""""""""""""""""
 " solarized scheme NOTE: doesn't work well with powerline
-"syntax enable
-"set background=dark
-"colorscheme solarized
+" syntax enable
+set background=light
+" colorscheme solarized
 
 " pydiction 
 filetype plugin on
@@ -89,29 +89,10 @@ let g:pydiction_menu_height = 8
 
 " NERDTree
 " autocmd VimEnter * NERDTree
-autocmd BufEnter * NERDTreeMirror
-
-
-" More powerline stuff
-set laststatus=2
-set encoding=utf-8 " Necessary to show Unicode glyphs
-set guifont=Inconsolata\ for\ Powerline:h15
-let g:Powerline_symbols = 'fancy'
-set encoding=utf-8
-set t_Co=256
-set fillchars+=stl:\ ,stlnc:\
-set term=xterm-256color
-set termencoding=utf-8
-
-" Powerline stuff for MacVim
-if has("gui_running")
-   let s:uname = system("uname")
-   if s:uname == "Darwin\n"
-      set guifont=Inconsolata\ for\ Powerline:h15
-   endif
-endif
+" autocmd BufEnter * NERDTreeMirror
 
 " snipmate mapping to ctrl-j
 imap <c-j> <Plug>snipMateNextOrTrigger
 smap <c-j> <Plug>snipMateNextOrTrigger
+
 " End .vimrc
