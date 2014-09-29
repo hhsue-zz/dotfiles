@@ -66,8 +66,6 @@ set ignorecase        " Searches ignore case
 set wildmenu          " Menu for autocomplete of filenames
 set number            " Prints line numbers on left of screen
 
-syntax on
-
 "CUDA
 "au BufNewFile,BufRead *.cu set ft=cu
 "au BufNewFile,BufRead *.cuh set ft=cu
@@ -78,8 +76,10 @@ syntax on
 
 """""""""""""""""""""""""More Plugins""""""""""""""""""""""""""""""
 " solarized scheme NOTE: doesn't work well with powerline
-" syntax enable
-set background=light
+set term=builtin_ansi
+set term=xterm
+syntax enable
+" set background=dark
 " colorscheme solarized
 
 " pydiction 

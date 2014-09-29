@@ -1,15 +1,17 @@
+set -o ignoreeof
 export TERM=xterm-256color
 #export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 #export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin
 #export PATH=$JAVA_HOME/bin:/Users/hhsue/Downloads/MacVim-snapshot-61:$PATH
 #export PATH=$PATH:~/etfw2/bin:~/emtools/bin
-export PYTHON_PATH=/Library/Python/2.7/site-packages
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-export WORKON_HOME=~/Envs
-source /usr/local/bin/virtualenvwrapper.sh
-export PATH=$PATH:/opt/local/lib/postgresql93/bin
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-
+export PYTHONPATH='/lib/python2.7/site-packages/'
+#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+#export WORKON_HOME=~/Envs
+#source /usr/local/bin/virtualenvwrapper.sh
+#export PATH=$PATH:/opt/local/lib/postgresql93/bin
+#export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+#export PATH=/usr/local/bin:$PATH
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 alias svn='/usr/local/Cellar/subversion17/1.7.14_1/bin/svn'
 
 # added below to spice up prompt
