@@ -1,4 +1,3 @@
-######################## from https://github.com/jcorbin/home #################################
 # Commiter identity
 [user]
     email = henryhsue@gmail.com
@@ -87,7 +86,6 @@
     compubrd = !git checkout master && git pull && git branch -d
     pub = !git push -u origin $(basename $(git symbolic-ref HEAD))
     phub = !git push -u origin $(basename $(git symbolic-ref HEAD)) && hub pull-request create
-    uewu = config user.email jcorbin@wunjo.org
     mrg = merge --no-ff --no-edit
     detachat = !git checkout $(git rev-parse HEAD)
     mergeto = !git checkout $1 && git merge HEAD@{1}
