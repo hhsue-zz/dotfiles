@@ -12,12 +12,6 @@ files=".bash_profile .vimrc"    # list of files/folders to symlink in homedir
 
 ##########
 
-# install prerequisites
-#git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-#brew install python 
-#brew install vim --with-python --with-ruby --with-perl
-#sudo cp /usr/local/bin/vim /usr/bin/vim
-
 # create dotfiles_old in homedir
 echo "1. Removing old $olddir, and creating new $olddir for backup. ~"
 rm -r $olddir

@@ -1,35 +1,40 @@
-export TERM=xterm-256color
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-#export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin
-export PATH=$JAVA_HOME/bin:/Users/hhsue/Downloads/MacVim-snapshot-61:$PATH
-export PATH=$PATH:~/etfw2/bin:~/emtools/bin
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-export WORKON_HOME=~/Envs
-export PATH=$PATH:/opt/local/lib/postgresql93/bin
-source /usr/local/bin/virtualenvwrapper.sh
-export PYTHON_PATH=/Library/Python/2.7/site-packages
+###################### PERSONAL ######################
 
-alias svn='/usr/local/Cellar/subversion17/1.7.14_1/bin/svn'
+# aliases
+alias new_session="sh ~/work/new_session.sh"
+alias lsof_listen="sudo lsof -PiTCP -sTCP:LISTEN"
+alias v='vim'
+alias c='cat'
+alias g='grep --color'
+alias grep='grep --color'
+alias f='find'
 
-# added below to spice up prompt
-# note: PS1 used to be \h:\W \u\$
-PS1="\[\033[31m\][\h:\W \u\$]\[\033[0m\] "
+# golang
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH="$PATH:$GOPATH/bin"
 
+# git
+alias glg='git log --oneline --graph --abbrev-commit --branches=* --decorate --color'
+alias sl='git shortlog -s -n --all --no-merges'
+# clean up git pager's output 
+export LESS=R
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# Unlimited history 
+HISTSIZE= HISTFILESIZE=
+# Avoid duplicates
+export HISTCONTROL=ignoredups:erasedups  
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
+# After each command, append to the history file and reread it
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a" #; history -c; history -r"
+# apply timestamp everytime
+export HISTTIMEFORMAT="%d/%m/%y %T "
 
+# autossh
+export AUTOSSH_PORT=0
+export AUTOSSH_POLL=1
 
-# Eternal bash history.
-# ---------------------
-# Undocumented feature which sets the size to "unlimited".
-# http://stackoverflow.com/questions/9457233/unlimited-bash-history
-export HISTFILESIZE=
-export HISTSIZE=
-export HISTTIMEFORMAT="[%F %T] "
-# Change the file location because certain bash sessions truncate .bash_history file upon close.
-# http://superuser.com/questions/575479/bash-history-truncated-to-500-lines-on-each-login
-export HISTFILE=~/.bash_eternal_history
-# Force prompt to write history after every command.
-# http://superuser.com/questions/20900/bash-history-loss
-PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
-
+# custom prompt
+PROMPT_COLOR="\[\033[1;32m\]"
+PS1="${PROMPT_COLOR}\u@\h \[\033[1;34m\]\w"'$(__git_ps1 " \[\e[1;33m\](%s)\[\e[0;39m\] ")'"\[\033[1;35m\]\$\[\033[0m\] "
